@@ -1,0 +1,23 @@
+{
+  "family": "%TASK_FAMILY%",
+  "networkMode": "awsvpc",
+  "executionRoleArn": "%EXECUTION_ROLE_ARN%",
+  "containerDefinitions": [
+    {
+      "image": "%REPOSITORY_URI%:%SHORT_COMMIT%",
+      "name": "%SERVICE_NAME%",
+      "cpu": 10,
+      "memory": 256,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 8080
+        }
+      ]
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512"
+}
